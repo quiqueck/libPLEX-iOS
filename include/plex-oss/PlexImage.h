@@ -41,6 +41,7 @@ extern const PlexImageType PlexImageTypeOfflineThumbnail;
 	CGSize maxImageSize;
 	NSURL* imageURL;
   NSInteger sectionKey;
+  NSString* mediaType;
     
     
 	MemoryImage* image;
@@ -70,6 +71,7 @@ extern const PlexImageType PlexImageTypeOfflineThumbnail;
 @property (readwrite, retain) UIImageView* imageView;
 @property (readwrite) BOOL cancelBackgroundLoad;
 @property (readonly) NSInteger sectionKey;
+@property (readonly, retain) NSString* mediaType;
 
 +(NSString*)buildIdFromRatingKey:(NSString*)rk type:(PlexImageType)tp machine:(Machine*)mach;
 +(MemoryImage*)loadImageForRatingKey:(NSString*)rk fromMachine:(Machine*)mach ofType:(PlexImageType)tp;
@@ -77,7 +79,7 @@ extern const PlexImageType PlexImageTypeOfflineThumbnail;
 +(UIImage*) defaultPoster;
 +(id)cloneFrom:(PlexImage*)src forMachine:(Machine*)mach originalPath:(NSString*)path image:(UIImage*)img;
 
--(id)initForRatingKey:(NSString*)rk forMachine:(Machine*)mach ofType:(PlexImageType)tp originalPath:(NSString*)path parentPath:(NSString*)parentPath sectionKey:(NSInteger)secKey; 
+-(id)initForRatingKey:(NSString*)rk forMachine:(Machine*)mach ofType:(PlexImageType)tp originalPath:(NSString*)path parentPath:(NSString*)parentPath sectionKey:(NSInteger)secKey  mediaType:(NSString*)mt; 
 -(void)didReceiveMemoryWarning;
 
 -(BOOL)loadImage;

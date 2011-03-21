@@ -19,6 +19,7 @@ extern const ConnectionInfoType ConnectionInfoTypeCanConnect;
 extern const ConnectionInfoType ConnectionInfoTypeAuthenticationNeeded;
 extern const ConnectionInfoType ConnectionInfoTypeLocalNetwork;
 extern const ConnectionInfoType ConnectionInfoTypeRecentlyAddedMedia;
+extern const ConnectionInfoType ConnectionInfoTypeSectionsRefreshing;   
 
 @class Machine, ClientConnection;
 

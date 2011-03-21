@@ -83,7 +83,6 @@ typedef struct _PlexMediaContainerFlags PlexMediaContainerFlags;
 	id formatter;
 	NSMutableArray* directories;
 	PlexMediaContainer* parentFilterContainer;
-	PlexRequest* request;
 	PlexMediaObject* parentObject;
 	//id<PlexDataPresenter> formatter;
 
@@ -116,7 +115,6 @@ typedef struct _PlexMediaContainerFlags PlexMediaContainerFlags;
 @property (readonly) PlexMediaObject* parentObject;
 @property (readonly) PlexMediaContainer* parentFilterContainer;
 @property (readonly) NSMutableArray* directories;
-@property (readonly) PlexRequest* request;
 @property (readonly) NSString* baseKey;
 @property (readwrite, retain) NSString* currentTitle;
 @property (readwrite, retain) NSString* backTitle;

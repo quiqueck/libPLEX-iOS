@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "PlexRequest.h"
 
+extern NSUInteger transcoderSessionCount;
+
 @interface PlexRequest (Security)
 +(NSData*)privateKey;
 -(NSString*)publicKey;

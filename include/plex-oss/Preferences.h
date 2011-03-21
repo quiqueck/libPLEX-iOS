@@ -56,6 +56,9 @@ typedef int ContentRating;
 -(BOOL)allowDirectStreaming;
 -(void)setAllowDirectStreaming:(BOOL)v;
 
+-(BOOL)waitForVideoPlaythrough;
+-(void)setWaitForVideoPlayThrough:(BOOL)v;
+
 /*-(NSTimeInterval)contentCachingTimeout;
 -(void)setContentCachingTimeout:(NSTimeInterval)v;*/
 

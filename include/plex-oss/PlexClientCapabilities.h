@@ -92,10 +92,11 @@ extern const PlexClientAudioChannels PlexClientAudioChannels_7_1Surround;
     
     NSString* cachedCaps;
     Machine* cachedForMachine;
+    BOOL disableDirectCopy;
 }
 
 @property (readonly) NSMutableArray* caps;
-@property (readonly) BOOL disableDirectCopy;
+@property (readwrite) BOOL disableDirectCopy;
 
 SINGLETON_INTERFACE(PlexClientCapabilities);
 

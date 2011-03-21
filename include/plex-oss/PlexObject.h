@@ -13,7 +13,7 @@
 @class PlexRequest;
 @class PlexImage;
 @interface PlexObject : MemoryObject {
-
+    PlexRequest* request;
 	NSString* key;
 	NSString* name;
 	NSString* containerType;
@@ -46,8 +46,8 @@
 @property (readonly) BOOL loadingBackgroundData;
 -(void)_init:(NSDictionary*)dict;
 
--(id)initWithContainerType:(NSString*)ct;
--(id)initWithAttributes:(NSDictionary*)dict containerType:(NSString*)ct;
+-(id)initWithContainerType:(NSString*)ct requestObject:(PlexRequest*)req;
+-(id)initWithAttributes:(NSDictionary*)dict containerType:(NSString*)ct requestObject:(PlexRequest*)req;
 -(void)didReceiveMemoryWarning;
 
 -(void)doLoadBackgroundData;
@@ -56,5 +56,6 @@
 -(void)finishedLoadBackgroundData;
 
 -(void)refreshContainingSection:(BOOL)force;
+-(void)updateRequest:(PlexRequest*)req;
 @end
 	

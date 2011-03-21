@@ -1,30 +1,34 @@
 //
-//  PlexMediaObject + VideoDetails.h
+//  PlexMediaPart.h
 //  PlexPad
 //
-//  Created by Frank Bauer on 12.02.11.
+//  Created by Frank Bauer on 20.03.11.
 //  Copyright 2011 Ambertation. All rights reserved.
 //
 
-#import "PlexMediaObject.h"
+#import <Foundation/Foundation.h>
+#import "PlexDirectory.h"
 #import "PlexMediaStream.h"
 
-@class PlexMediaPart;
+@class PlexMediaStream, PlexMediaObject, PlexMediaContainer;
+@interface PlexMediaPart : PlexDirectory {
+    
+}
 
-@interface PlexMediaObject (VideoDetails)
--(PlexMediaObject*)loadVideoDetails;
--(PlexMediaPart*)partAtIndex:(NSUInteger)idx;
-
+-(NSArray*)mediaStreams;
 -(NSArray*)streamsOfType:(PlexMediaStreamType)t forLangauge:(NSString*)langFilterOrNil haveFallback:(BOOL)fallback;
 -(NSArray*)audioStreamsForLanguage:(NSString*)langFilterOrNil haveFallback:(BOOL)fallback;
 -(NSArray*)videoStreamsForLanguage:(NSString*)langFilterOrNil haveFallback:(BOOL)fallback;
 -(NSArray*)subtitleStreamsForLanguage:(NSString*)langFilterOrNil haveFallback:(BOOL)fallback;
 
--(void)setAudioStream:(PlexMediaStream*)streamOrNil;
 -(void)setSubtitleStream:(PlexMediaStream*)streamOrNil;
+-(void)setAudioStream:(PlexMediaStream*)streamOrNil;
 
--(NSArray*)actors;
--(NSArray*)writers;
--(NSArray*)directors;
--(NSArray*)genres;
+-(PlexMediaObject*)parentMediaObject;
+-(PlexMedia*)parentMedia;
+
+-(NSURL*)mediaURL;
+-(NSURL*)mediaStreamURL;
+
+-(PlexMediaContainer*)contents;
 @end

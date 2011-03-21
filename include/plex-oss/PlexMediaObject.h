@@ -27,7 +27,6 @@ extern const PlexMediaObjectTypes PlexMediaMediaTypeMovie;
 @class LoadPlexObjectBackgroundContentOperation,LoadURLOperation;
 @interface PlexMediaObject : PlexDirectory{
 	NSString* ratingKey;
-	NSTimeInterval duration;
 	NSDate* originallyAvailableAt;
 	NSString* summary;
 	PlexMediaObjectTypes type;
@@ -49,12 +48,14 @@ extern const PlexMediaObjectTypes PlexMediaMediaTypeMovie;
 @property (readonly) PlexMediaContainer* popupContainer;	
 @property (readonly) BOOL search;
 @property (readonly) NSString* summary;
-@property (readonly) NSString* ratingKey;
+@property (readonly, retain) NSString* ratingKey;
 @property (readonly) NSString* imageRatingKey;
 @property (readonly) NSString* historyImageRatingKey;
 @property (readonly) PlexMediaObjectTypes type;
 @property (readwrite, assign) UIView* popoverView;
 @property (readonly) PlexMediaObject* parentObject;
+@property (readwrite, assign) NSTimeInterval viewOffset;
+@property (readonly, assign) NSTimeInterval duration;
 
 @property (readonly) BOOL isMovie;
 @property (readonly) BOOL isVideo;
@@ -63,7 +64,6 @@ extern const PlexMediaObjectTypes PlexMediaMediaTypeMovie;
 @property (readonly) BOOL isTVShow;
 	
 //Episode Stuff
-@property (readonly) NSTimeInterval duration;
 @property (readonly) NSDate* originallyAvailableAt;
 
 -(id)initWithAttributes:(NSDictionary*)dict parentMediaContainer:(PlexMediaContainer*)mc parentObject:(PlexMediaObject*)pmo containerType:(NSString*)ct;
@@ -84,6 +84,9 @@ extern const PlexMediaObjectTypes PlexMediaMediaTypeMovie;
 -(NSURL*)mediaStreamURL;
 -(NSURL*)mediaPlexPlayURL;
 -(NSURL*)audioPlexPlayURL;
+
+-(PlexMedia*)mediaResource;
+-(NSArray*)mediaItems;
 
 -(int)rating;
 -(PlexMediaObjectSeenState)seenState;

@@ -12,7 +12,7 @@
 extern const NSString* PlexMediaToken;
 extern const NSString* PlexMediaPartToken;
 
-@class PlexImage;
+@class PlexImage, PlexMedia;
 
 @interface PlexDirectory : PlexObject<NSXMLParserDelegate>  {
 	PlexMediaContainer* mediaContainer;
@@ -33,7 +33,6 @@ extern const NSString* PlexMediaPartToken;
 -(id)initWithAttributes:(NSDictionary*)dict parentMediaContainer:(PlexMediaContainer*)mc parentObject:(PlexDirectory*)pmo containerType:(NSString*)ct;
 
 -(NSString*)listSubObjects:(NSString*)type usingKey:(NSString*)k;
--(PlexDirectory*)mediaResource;
 -(NSString*)debugSummary;
 -(PlexImage*)plexImageFromKey;
 @end

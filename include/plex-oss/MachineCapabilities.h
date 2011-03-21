@@ -14,11 +14,20 @@ extern MachineCapability SERVER_CAP_QUALITY_LISTING;
 extern MachineCapability SERVER_CAP_BONJOUR_ANNOUNCE;
 extern MachineCapability SERVER_CAP_TRANSCODER_KEYS_IN_URL;
 extern MachineCapability SERVER_CAP_DIRECT_PLAYBACK;
+extern MachineCapability SERVER_CAP_DIRECT_STREAM;
 extern MachineCapability SERVER_CAP_DECODER_CAPS;
 extern MachineCapability SERVER_CAP_EDIT_METADATA;
 extern MachineCapability SERVER_CAP_TRANSCODER_PING;
 extern MachineCapability SERVER_CAP_GLOBAL_LIST_OF_ADDITIONS;
-
+extern MachineCapability SERVER_CAP_AIRPLAY;
+#if ALLOW_GDM
+extern MachineCapability SERVER_CAP_GDM_ANNOUNCE;
+#endif
+#if ALLOW_STREAM_SELECT
+extern MachineCapability SERVER_CAP_SET_AUDIO_GAIN;
+extern MachineCapability SERVER_CAP_SELECT_AUDIO_STREAM;
+extern MachineCapability SERVER_CAP_SELECT_SUBTITLE_STREAM;
+#endif
 
 
 @interface MachineCapabilities : NSObject {

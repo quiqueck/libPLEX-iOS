@@ -96,6 +96,7 @@ extern const NSString* plexClientsKey ;
 +(void)pingTranscoders;
 -(void)pingTranscoder;
 -(void)pingTranscoderSync;
+-(NSURL*)pingURL;
 
 -(void)refreshSection:(NSInteger)key force:(BOOL)forceRefresh;
 -(void)refreshAllSections:(BOOL)force;
