@@ -50,6 +50,9 @@ typedef int ContentRating;
 -(BOOL)broadcastLocalServer;
 -(void)setBroadcastLocalServer:(BOOL)v;
 
+-(BOOL)allowAirPlay;
+-(void)setAllowAirPlay:(BOOL)v;
+
 -(BOOL)allowDirectPlayback;
 -(void)setAllowDirectPlayback:(BOOL)v;
 

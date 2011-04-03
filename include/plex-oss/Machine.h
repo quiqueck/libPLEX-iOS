@@ -174,10 +174,13 @@ typedef struct _MachineStateRecord{
 
 -(NSString*)filterForSection:(NSString*)section;
 -(void)setFilter:(NSString*)f forSection:(NSString*)section;
+
 -(NSArray*)lastSeenContainerPath;
 -(void)setLastSeenContainerPath:(NSArray*)pos;
+
 -(void)setLastSearchQuery:(NSString*)q forSection:(NSString*)section;
 -(NSString*)lastSearchQueryForSection:(NSString*)section;
+
 -(void)setSelectionIndex:(CGFloat)idx key:(NSString*)key selectedObject:(PlexMediaObject*)objOrNil;
 -(CGFloat)selectionIndexForKey:(NSString*)key;
 @end

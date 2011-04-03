@@ -11,6 +11,7 @@
 
 @interface PlexMediaObject (TVShows)
 -(PlexMediaObject*)parentShowMediaObject;
+-(PlexMediaObject*)parentSeasonMediaObject;
 -(NSString*)showTitle;
 -(NSUInteger)episodeNr;
 -(NSUInteger)seasonNr;

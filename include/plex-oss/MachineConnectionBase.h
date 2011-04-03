@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Machine.h"
+
+typedef NSUInteger MachineConnectionPriority;
+extern const MachineConnectionPriority MachineConnectionPriorityHigh;
+extern const MachineConnectionPriority MachineConnectionPriorityNormal;
+extern const MachineConnectionPriority MachineConnectionPriorityLow;
+extern const MachineConnectionPriority MachineConnectionPriorityIgnore;
+
 @class MachineManager;
 @interface MachineConnectionBase : NSObject<NSCoding> {
 	NSDate* lastFullConnectionStateUpdate;
@@ -16,22 +23,24 @@
 	NSString* ip;
 	NSDate* lastSeen;
 	NSString* etherID;
-  
+    
 	NSString* machineID;
 	NSString* versionStr;
 	
 	Machine* machine;
 	
-  MachineStateRecord stateRecord;
+    MachineStateRecord stateRecord;
 	BOOL stateUpdateRunning;
 	NSTimeInterval updateTime;
 	
 	
 	NSArray* clientConnections;
     
-  NSString* qualityValues;
-  NSString* qualityBitrates;
-  NSString* qualityHeights;
+    NSString* qualityValues;
+    NSString* qualityBitrates;
+    NSString* qualityHeights;
+    
+    MachineConnectionPriority priority;
 }
 +(MachineConnectionBase*)machineConnectionForHostName:(NSString*)hostName ip:(NSString*)ip port:(NSUInteger)port etherID:(NSString*)mac;
 -(id)initForHostName:(NSString*)hostName ip:(NSString*)ip port:(NSUInteger)port etherID:(NSString*)mac;
@@ -39,6 +48,7 @@
 -(Machine*)machineWithServerName:(NSString*)serverName manager:(MachineManager*)parent;
 -(BOOL)endpointIsMachine:(Machine*)m;
 
+@property (readwrite) MachineConnectionPriority priority;
 @property (readwrite, retain) NSString* hostName;
 @property (readwrite) NSUInteger port;
 @property (readwrite, retain) NSString* ip;
@@ -60,7 +70,7 @@
 @property (readonly) BOOL isOnline;
 @property (readonly) BOOL authenticationNeeded;
 @property (readonly) NSTimeInterval lastStateUpdateTime;
-
+@property (readonly) NSString* type;
 @property (readonly, retain) NSArray* clientConnections;
 
 @property (readwrite, assign) Machine* machine;

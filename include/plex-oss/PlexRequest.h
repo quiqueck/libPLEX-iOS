@@ -58,13 +58,13 @@ extern const NSString* plexClientsKey ;
 -(PlexMediaContainer*)processXMLData:(LoadURLOperation*)op;
 -(PlexMediaContainer*)processXMLData:(NSData*)receivedData baseKey:(NSString*)key object:(PlexMediaObject*)pmo lastSearch:(NSString*)loaded_preset;
 -(NSURL*)prepareQueryForKey:(NSString*)key callingObject:(PlexMediaObject*)pmo ignorePresets:(BOOL)ign lastSearch:(NSString**)loaded_preset;
--(LoadURLOperation*)asyncQuery:(NSString*)key callingObject:(PlexMediaObject*)pmo ignorePresets:(BOOL)ign notify:(id<NSURLLoadOperationDelegate>)opDelegate timeout:(NSTimeInterval)t;
--(PlexMediaContainer*) query:(NSString*)key callingObject:(PlexMediaObject*)pmo ignorePresets:(BOOL)ign timeout:(NSTimeInterval)t;
+-(LoadURLOperation*)asyncQuery:(NSString*)key callingObject:(PlexMediaObject*)pmo ignorePresets:(BOOL)ign notify:(id<NSURLLoadOperationDelegate>)opDelegate timeout:(NSTimeInterval)t cachePolicy:(NSURLRequestCachePolicy)cachePol;
+-(PlexMediaContainer*) query:(NSString*)key callingObject:(PlexMediaObject*)pmo ignorePresets:(BOOL)ign timeout:(NSTimeInterval)t cachePolicy:(NSURLRequestCachePolicy)cachePolt;
 -(PlexStreamingQuality)bestQuality;
 
--(NSData*)dataForURL:(NSURL*)url authenticateStreaming:(BOOL)auths timeout:(NSTimeInterval)t didTimeout:(BOOL*)didTimeout;
+-(NSData*)dataForURL:(NSURL*)url authenticateStreaming:(BOOL)auths timeout:(NSTimeInterval)t didTimeout:(BOOL*)didTimeout cachePolicy:(NSURLRequestCachePolicy)cachePol;
 -(NSData*)dataForRequest:(NSMutableURLRequest*)req timeout:(NSTimeInterval)t didTimeout:(BOOL*)didTimeout;
--(void)asyncDataForURL:(NSURL*)url authenticateStreaming:(BOOL)auths notify:(id<NSURLLoadOperationDelegate>)opDelegate timeout:(NSTimeInterval)t;
+-(void)asyncDataForURL:(NSURL*)url authenticateStreaming:(BOOL)auths notify:(id<NSURLLoadOperationDelegate>)opDelegate timeout:(NSTimeInterval)t cachePolicy:(NSURLRequestCachePolicy)cachePol;
 
 -(void)sendRemoteControlCommand:(NSString*)cmd type:(PlexRemoteControlType)type toClient:(ClientConnection*)clientOrNil;
 -(void)sendRemoteControlURLSendKey:(NSString*)k client:(ClientConnection*)clientOrNil;

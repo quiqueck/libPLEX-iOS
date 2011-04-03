@@ -80,7 +80,7 @@ SINGLETON_INTERFACE(MachineManager)
 -(void)removeMachineAtIndex:(NSUInteger)idx;
 -(Machine*)machineAtIndex:(int)idx;
 -(Machine*)machineForMachineID:(NSString*)mid;
-
+-(BOOL)hasMachineWithID:(NSString*)mid;
 
 -(void)updateMachineStatesNow;
 -(void)startMonitoringMachineState;

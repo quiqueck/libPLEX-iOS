@@ -68,6 +68,7 @@ extern const PlexMediaObjectTypes PlexMediaMediaTypeMovie;
 
 -(id)initWithAttributes:(NSDictionary*)dict parentMediaContainer:(PlexMediaContainer*)mc parentObject:(PlexMediaObject*)pmo containerType:(NSString*)ct;
 -(PlexMediaContainer*)contents;
+-(PlexMediaContainer*)contentsUsingCachePolicy:(NSURLRequestCachePolicy)cachePol;
 -(LoadURLOperation*)asyncContentsNotify:(id<NSURLLoadOperationDelegate>)opDelegate;
 -(void)processReceivedContents:(PlexMediaContainer*)contents;
 -(LoadPlexObjectBackgroundContentOperation*)loadContentAndNotify:(id<BackgroundOperationDelegate>)objOrNil;

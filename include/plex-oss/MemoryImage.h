@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #define MEMORY_DEBUG_IMG 0
-#define MEMORY_DEBUG_IMG_WRITE 1
+#define MEMORY_DEBUG_IMG_WRITE 0
 
 
 #if MEMORY_DEBUG_IMG
