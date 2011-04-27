@@ -20,6 +20,8 @@ extern const NSString* plexStoreKey;
 extern const NSString* plexSystemKey;
 extern const NSString* plexVideoKey;
 extern const NSString* plexMusicKey;
+extern const NSString* plexChannelsKey;
+extern const NSString* plexSearchKey;
 
 
 typedef NSString* PlexRemoteControlType;
@@ -27,7 +29,6 @@ extern const PlexRemoteControlType PlexRemoteControlTypeApplication;
 extern const PlexRemoteControlType PlexRemoteControlTypeNavigation;
 extern const PlexRemoteControlType PlexRemoteControlTypePlayback;
 
-extern const NSString* plexClientsKey ;
 
 @class PlexMediaContainer, PlexMediaObject, PlexImage, PlexServer ,PlexDirectory, Machine, LoadURLOperation, Activity;
 @protocol NSURLLoadOperationDelegate;
@@ -108,6 +109,9 @@ extern const NSString* plexClientsKey ;
 -(PlexMediaContainer*)topLevelContainer;
 -(PlexMediaContainer*)librarySections;
 -(PlexMediaContainer*)recentlyAddedMedia;
+-(PlexMediaContainer*)channels;
+-(PlexMediaContainer*)search:(NSString*)query;
+
 -(void)didReceiveMemoryWarning;
 - (NSString *) buildAbsoluteKey: (NSString *) key;
 - (NSString *) buildAbsoluteKey: (NSString *) key  referenceLocalHost:(BOOL)local;
