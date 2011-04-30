@@ -87,4 +87,6 @@ typedef int ContentRating;
 +(Class)baseClassForPlexPrefs;
 +(void)setBaseClassForPlexPrefs:(Class)cl;
 +(id)allocWithZone_NSObject:(NSZone *)zone;
+
+-(NSString*)deviceIdentifier;
 @end

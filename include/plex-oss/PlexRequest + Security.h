@@ -12,7 +12,10 @@
 extern NSUInteger transcoderSessionCount;
 
 @interface PlexRequest (Security)
++(void)addPlexHeaders:(NSMutableURLRequest*)req;
+
 +(NSData*)privateKey;
++(void)setApplicationName:(NSString*)appname version:(NSString*)ver;
 -(NSString*)publicKey;
 -(NSString*)timeStamp;
 -(NSString*)getDeviceSessionHeader;

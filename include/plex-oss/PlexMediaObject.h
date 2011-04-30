@@ -62,6 +62,8 @@ extern const PlexMediaObjectTypes PlexMediaMediaTypeMovie;
 @property (readonly) BOOL isEpisode;
 @property (readonly) BOOL isSeason;
 @property (readonly) BOOL isTVShow;
+@property (readonly) BOOL isArtist;
+@property (readonly) BOOL isAlbum;
 	
 //Episode Stuff
 @property (readonly) NSDate* originallyAvailableAt;
