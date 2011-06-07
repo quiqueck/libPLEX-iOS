@@ -68,6 +68,7 @@ typedef struct _MachineStateRecord{
   
   //authentication
   NSString* userName;
+  NSString* authToken;
   
   //connection
   MachineConnectionBase* bestConnection;
@@ -118,6 +119,7 @@ typedef struct _MachineStateRecord{
 @property (readwrite) PlayOnType playOn;
 @property (readwrite) BOOL autoConnect;
 @property (readwrite) BOOL autoReturn;
+@property (readwrite, retain) NSString* authToken;
 @property (readonly) BOOL sectionsAreRefreshing;
 
 @property (readonly, retain) NSString* userName;

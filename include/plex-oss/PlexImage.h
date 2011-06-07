@@ -82,6 +82,10 @@ extern const PlexImageType PlexImageTypeOfflineThumbnail;
 -(id)initForRatingKey:(NSString*)rk forMachine:(Machine*)mach ofType:(PlexImageType)tp originalPath:(NSString*)path parentPath:(NSString*)parentPath sectionKey:(NSInteger)secKey  mediaType:(NSString*)mt; 
 -(void)didReceiveMemoryWarning;
 
+
+-(NSURLRequest*)imageURLRequestWithCachePolicy:(NSURLRequestCachePolicy)cachePol;
+-(NSURLRequest*)imageURLRequest;
+
 -(BOOL)loadImage;
 -(void)loadInBackground;
 -(void)loadInBackgroundAndNotify:(id<BackgroundOperationDelegate>)delegateOrNil;

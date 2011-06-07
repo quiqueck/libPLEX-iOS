@@ -21,6 +21,7 @@ typedef NSUInteger PlexClientH264Level;
 typedef NSString* PlexClientH264Profile;
 typedef NSUInteger PlexClientResolution;
 typedef NSString* PlexClientDecoderName;
+typedef NSString* PlexClientAACProfile;
 
 extern const PlexClientBitrate PlexClientBitrateAny;
 extern const PlexClientAudioChannels PlexAudioChannelsAny;
@@ -42,6 +43,10 @@ extern const PlexClientH264Level PlexClientH264Level_5_1;
 extern const PlexClientH264Profile PlexClientH264Profile_High;
 extern const PlexClientH264Profile PlexClientH264Profile_Baseline;
 extern const PlexClientH264Profile PlexClientH264Profile_Main;
+
+extern const PlexClientAACProfile PlexClientAACProfile_Low;
+extern const PlexClientAACProfile PlexClientAACProfile_Main;
+
 
 extern const PlexClientResolution PlexClientResolution_1080p;
 extern const PlexClientResolution PlexClientResolution_720p;
@@ -69,6 +74,24 @@ extern const PlexClientAudioChannels PlexClientAudioChannels_7_1Surround;
 @property (readwrite, assign) PlexClientAudioChannels channels;
 @end
 
+@interface PlexClientAACAudioDecoder : PlexClientAudioDecoder{
+    PlexClientAACProfile profile;
+}
+
+@property (readwrite, assign) PlexClientAACProfile profile;
+@end
+
+@interface PlexClientVideoPlayer : NSObject{
+    uint32_t maxSegmentSizePerSecond;
+    BOOL playsAnamorphic;
+}
+
+@property (readwrite, assign) uint32_t maxSegmentSizePerSecond;
+@property (readwrite, assign) BOOL playsAnamorphic;
+
+-(NSString*)capString;
+@end
+
 @interface PlexClientVideoDecoder : PlexClientDecoder{
     PlexClientResolution resolution;
 }
@@ -89,6 +112,7 @@ extern const PlexClientAudioChannels PlexClientAudioChannels_7_1Surround;
     NSMutableArray* caps;
     NSMutableArray* audioDecoders;
     NSMutableArray* videoDecoders;
+    PlexClientVideoPlayer* videoPlayer;
     
     NSString* cachedCaps;
     Machine* cachedForMachine;
@@ -97,6 +121,7 @@ extern const PlexClientAudioChannels PlexClientAudioChannels_7_1Surround;
 
 @property (readonly) NSMutableArray* caps;
 @property (readwrite) BOOL disableDirectCopy;
+@property (readonly) PlexClientVideoPlayer* videoPlayer;
 
 SINGLETON_INTERFACE(PlexClientCapabilities);
 

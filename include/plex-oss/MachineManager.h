@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <ambertation-plex/Ambertation.h>
+#import <Ambertation-Plex/Ambertation.h>
 #import "MachineAutoDetector.h"
 
 typedef int ConnectionInfoType;
